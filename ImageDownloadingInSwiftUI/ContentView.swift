@@ -7,10 +7,20 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ContentView: View {
+    
+    @State var url = "https://www.gstatic.com/webp/gallery/1.jpg"
+
     var body: some View {
-        Text("Hello World")
+        AnimatedImage(url: URL(string: url))
+        .resizable()
+        .frame(width: 200, height: 200)
+        .clipShape(Circle())
+            .onTapGesture {
+                self.url = "https://www.gstatic.com/webp/gallery3/1.png"
+        }
     }
 }
 
